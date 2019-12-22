@@ -49,9 +49,24 @@ public class GoogleSearchTest {
         }
     }
 
-    @After
-    public void tearDown() throws Exception{
-        driver.quit();
+    @Test
+    public void testfindByLinkText(){
+
+        //by linkText
+        WebElement gmailLink = driver.findElement(By.linkText("Gmail"));
+        assertEquals("https://mail.google.com/mail/?tab=wm&ogbl", gmailLink.getAttribute("href"));
+
+        //by paritaLinkText
+        WebElement gmailLin2 = driver.findElement(By.partialLinkText("mail"));
+        assertEquals("https://mail.google.com/mail/?tab=wm&ogbl", gmailLink.getAttribute("href"));
+
+        System.out.println(gmailLink.getAttribute("href"));
+        System.out.println(gmailLin2.getAttribute("href"));
     }
+
+//    @After
+//    public void tearDown() throws Exception{
+//        driver.quit();
+//    }
 
 }
