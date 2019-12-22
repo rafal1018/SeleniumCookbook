@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.*;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class GoogleSearchTest {
@@ -27,7 +29,7 @@ public class GoogleSearchTest {
         WebElement element = driver.findElement(By.name("q"));
         element.clear();
 
-        element.sendKeys("Selenium testing tools cookbok");
+        element.sendKeys("Selenium testing tools cookbook");
 
         element.submit();
 
@@ -36,7 +38,15 @@ public class GoogleSearchTest {
                 return d.getTitle().toLowerCase().startsWith("selenium testing tools cookbook");
             }
         });
-        assertEquals("Selenium testing tools cookbook - Google Search" , driver.getTitle());
+        assertEquals("Selenium testing tools cookbook - Szukaj w Google" , driver.getTitle());
+
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+
+//        assertEquals(109, links.size());
+
+        for(WebElement link : links){
+            System.out.println(link.getAttribute("href"));
+        }
     }
 
     @After
