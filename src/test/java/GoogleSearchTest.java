@@ -50,7 +50,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void testfindByLinkText(){
+    public void testFindByLinkText(){
 
         //by linkText
         WebElement gmailLink = driver.findElement(By.linkText("Gmail"));
@@ -62,6 +62,18 @@ public class GoogleSearchTest {
 
         System.out.println(gmailLink.getAttribute("href"));
         System.out.println(gmailLin2.getAttribute("href"));
+    }
+
+    @Test
+    public void testFindByxPath(){
+//        WebElement indirectlyXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span"));
+//        System.out.println(indirectlyXPath.getText());
+
+//        WebElement predicatXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span[1]"));
+//        System.out.println(predicatXPath.getText());
+
+        WebElement atributeXPath = driver.findElement(By.xpath("//a[@class='gb_9d gb_4 gb_Vc']"));
+        atributeXPath.click();
     }
 
 //    @After

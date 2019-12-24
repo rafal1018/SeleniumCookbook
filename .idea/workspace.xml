@@ -35,7 +35,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GoogleSearchTest.testfindByLinkText">
+  <component name="RunManager" selected="JUnit.GoogleSearchTest.testFindByxPath">
     <configuration name="GoogleSearchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumCoookbook" />
       <option name="PACKAGE_NAME" value="" />
@@ -55,6 +55,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoogleSearchTest.testFindByxPath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumCoookbook" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
+      <option name="METHOD_NAME" value="testFindByxPath" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GoogleSearchTest.testfindByLinkText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumCoookbook" />
       <option name="PACKAGE_NAME" value="" />
@@ -67,6 +77,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoogleSearchTest.testFindByxPath" />
         <item itemvalue="JUnit.GoogleSearchTest.testfindByLinkText" />
         <item itemvalue="JUnit.GoogleSearchTest.findByLinkText" />
         <item itemvalue="JUnit.GoogleSearchTest" />
