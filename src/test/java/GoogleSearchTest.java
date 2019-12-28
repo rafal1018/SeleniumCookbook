@@ -21,7 +21,8 @@ public class GoogleSearchTest {
         System.setProperty("webdriver.chrome.driver", "./src/test/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://www.google.com");
+//        driver.get("http://www.google.com");
+        driver.get("https://www.olx.pl/");
     }
 
     @Test
@@ -42,7 +43,7 @@ public class GoogleSearchTest {
 
         List<WebElement> links = driver.findElements(By.tagName("a"));
 
-//        assertEquals(109, links.size());
+        assertEquals(109, links.size());
 
         for(WebElement link : links){
             System.out.println(link.getAttribute("href"));
@@ -66,19 +67,47 @@ public class GoogleSearchTest {
 
     @Test
     public void testFindByxPath(){
-//        WebElement indirectlyXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span"));
-//        System.out.println(indirectlyXPath.getText());
+        WebElement indirectlyXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span"));
+        System.out.println(indirectlyXPath.getText());
 
-//        WebElement predicatXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span[1]"));
-//        System.out.println(predicatXPath.getText());
+        WebElement predicatXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span[1]"));
+        System.out.println(predicatXPath.getText());
 
         WebElement atributeXPath = driver.findElement(By.xpath("//a[@class='gb_9d gb_4 gb_Vc']"));
         atributeXPath.click();
     }
 
-//    @After
-//    public void tearDown() throws Exception{
-//        driver.quit();
-//    }
+    @Test
+    public void textFieldAutomation(){
+
+        WebElement sendText1 = driver.findElement(By.name("q"));
+
+        sendText1.clear();
+
+        sendText1.sendKeys("Selenium i testowanie aplikacji. Receotury");
+        sendText1.submit();
+    }
+
+    @Test
+    public void clickButton(){
+
+        WebElement logIn = driver.findElement(By.xpath("//a[@id=\"gb_70\"]"));
+        logIn.click();
+
+    }
+
+    @Test
+    public void testElementText(){
+
+        WebElement message = driver.findElement(By.xpath("//a[@href=\"https://www.olx.pl/moda/\"]/span"));
+        String messageText = message.getText();
+
+        assertEquals("Moda", messageText);
+    }
+
+    @After
+    public void tearDown() throws Exception{
+        driver.quit();
+    }
 
 }

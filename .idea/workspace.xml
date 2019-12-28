@@ -8,6 +8,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SeleniumCoookbook" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -15,9 +18,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1VIrO1cUAXsjKTp8j1Rnn1VsISY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -35,21 +42,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GoogleSearchTest.testFindByxPath">
-    <configuration name="GoogleSearchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GoogleSearchTest.testElementText">
+    <configuration name="GoogleSearchTest.clickButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumCoookbook" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="clickButton" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoogleSearchTest.findByLinkText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoogleSearchTest.testElementText" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumCoookbook" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
-      <option name="METHOD_NAME" value="findByLinkText" />
+      <option name="METHOD_NAME" value="testElementText" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,12 +83,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoogleSearchTest.textFieldAutomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumCoookbook" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
+      <option name="METHOD_NAME" value="textFieldAutomation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoogleSearchTest.testElementText" />
+        <item itemvalue="JUnit.GoogleSearchTest.clickButton" />
+        <item itemvalue="JUnit.GoogleSearchTest.textFieldAutomation" />
         <item itemvalue="JUnit.GoogleSearchTest.testFindByxPath" />
         <item itemvalue="JUnit.GoogleSearchTest.testfindByLinkText" />
-        <item itemvalue="JUnit.GoogleSearchTest.findByLinkText" />
-        <item itemvalue="JUnit.GoogleSearchTest" />
       </list>
     </recent_temporary>
   </component>
@@ -96,5 +115,16 @@
       <updated>1576951414618</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
