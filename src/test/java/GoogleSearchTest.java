@@ -1,3 +1,4 @@
+import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -5,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.*;
 
@@ -18,15 +20,19 @@ public class GoogleSearchTest {
 
     @Before
     public void setUp() {
+
         System.setProperty("webdriver.chrome.driver", "./src/test/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 //        driver.get("http://www.google.com");
-        driver.get("https://www.olx.pl/");
+//        driver.get("https://www.olx.pl/");
+        driver.get("https://www.allegro.pl");
+
     }
 
     @Test
     public void testGoogleSearch() {
+
         WebElement element = driver.findElement(By.name("q"));
         element.clear();
 
@@ -39,19 +45,20 @@ public class GoogleSearchTest {
                 return d.getTitle().toLowerCase().startsWith("selenium testing tools cookbook");
             }
         });
-        assertEquals("Selenium testing tools cookbook - Szukaj w Google" , driver.getTitle());
+        assertEquals("Selenium testing tools cookbook - Szukaj w Google", driver.getTitle());
 
         List<WebElement> links = driver.findElements(By.tagName("a"));
 
         assertEquals(109, links.size());
 
-        for(WebElement link : links){
+        for (WebElement link : links) {
             System.out.println(link.getAttribute("href"));
         }
+
     }
 
     @Test
-    public void testFindByLinkText(){
+    public void testFindByLinkText() {
 
         //by linkText
         WebElement gmailLink = driver.findElement(By.linkText("Gmail"));
@@ -63,10 +70,12 @@ public class GoogleSearchTest {
 
         System.out.println(gmailLink.getAttribute("href"));
         System.out.println(gmailLin2.getAttribute("href"));
+
     }
 
     @Test
-    public void testFindByxPath(){
+    public void testFindByxPath() {
+
         WebElement indirectlyXPath = driver.findElement(By.xpath("//div[@class='szppmdbYutt__middle-slot-promo']//span"));
         System.out.println(indirectlyXPath.getText());
 
@@ -78,7 +87,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void textFieldAutomation(){
+    public void textFieldAutomation() {
 
         WebElement sendText1 = driver.findElement(By.name("q"));
 
@@ -89,7 +98,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void clickButton(){
+    public void clickButton() {
 
         WebElement logIn = driver.findElement(By.xpath("//a[@id=\"gb_70\"]"));
         logIn.click();
@@ -97,7 +106,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void testElementText(){
+    public void testElementText() {
 
         WebElement message = driver.findElement(By.xpath("//a[@href=\"https://www.olx.pl/moda/\"]/span"));
         String messageText = message.getText();
@@ -105,9 +114,68 @@ public class GoogleSearchTest {
         assertEquals("Moda", messageText);
     }
 
-    @After
-    public void tearDown() throws Exception{
-        driver.quit();
+    @Test
+    public void testElementAttribute() {
+
+        WebElement message = driver.findElement(By.id("postNewAdLink"));
+        assertEquals("https://www.olx.pl/nowe-ogloszenie/?bs=homepage_adding", message.getAttribute("href"));
+
     }
+
+    @Test
+    public void testDropDown(){
+        // Test dla strony allegro.pl
+
+        WebElement acceptButton = driver.findElement(By.xpath("//button[@class=\"_13q9y _8hkto _11eg6 _7qjq4 _ey68j\"]"));
+        acceptButton.click();
+
+        Select make = new Select(driver.findElement(By.xpath("//select[@data-role=\"filters-dropdown-toggle\"]")));
+
+
+        assertFalse(make.isMultiple());
+
+        assertEquals(16, make.getOptions().size());
+
+        make.selectByVisibleText("Wszystkie kategorie");
+        assertEquals("Wszystkie kategorie", make.getFirstSelectedOption().getText());
+
+        make.selectByValue("/kategoria/elektronika");
+        assertEquals("Elektronika", make.getFirstSelectedOption().getText());
+
+        make.selectByIndex(3);
+        assertEquals("Elektronika", make.getFirstSelectedOption().getText());
+    }
+
+    @Test
+    public void testMultipleSelectList(){
+        // Test dla strony allegro.pl
+
+        WebElement acceptButton = driver.findElement(By.xpath("//button[@class=\"_13q9y _8hkto _11eg6 _7qjq4 _ey68j\"]"));
+        acceptButton.click();
+
+        Select make = new Select(driver.findElement(By.xpath("//select[@data-role=\"filters-dropdown-toggle\"]")));
+
+
+        assertFalse(make.isMultiple());
+
+        assertEquals(16, make.getOptions().size());
+
+        make.selectByVisibleText("Elektronika");
+        make.selectByVisibleText("Firma");
+        make.selectByVisibleText("Kolekcje i sztuka");
+
+        make.deselectByValue("/kategoria/firma");
+
+        assertEquals(1, make.getAllSelectedOptions().size());
+
+        make.deselectByIndex(3);
+
+        assertEquals(0, make.getAllSelectedOptions().size());
+    }
+
+//    @After
+//    public void tearDown() throws Exception{
+//        driver.quit();
+//    }
 
 }
