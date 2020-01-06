@@ -42,22 +42,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GoogleSearchTest.testMultipleSelectList">
-    <configuration name="GoogleSearchTest.clickButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeleniumCoookbook" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
-      <option name="METHOD_NAME" value="clickButton" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.GoogleSearchTest.testDropdown">
     <configuration name="GoogleSearchTest.testDropDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeleniumCoookbook" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
       <option name="METHOD_NAME" value="testDropDown" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoogleSearchTest.testDropdown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumCoookbook" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoogleSearchTest" />
+      <option name="METHOD_NAME" value="testDropdown" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,11 +95,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoogleSearchTest.testDropdown" />
         <item itemvalue="JUnit.GoogleSearchTest.testMultipleSelectList" />
         <item itemvalue="JUnit.GoogleSearchTest.testDropDown" />
         <item itemvalue="JUnit.GoogleSearchTest.testElementAttribute" />
         <item itemvalue="JUnit.GoogleSearchTest.testElementText" />
-        <item itemvalue="JUnit.GoogleSearchTest.clickButton" />
       </list>
     </recent_temporary>
   </component>
@@ -121,7 +121,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -123,7 +125,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void testDropDown(){
+    public void testDropDown() {
         // Test dla strony allegro.pl
 
         WebElement acceptButton = driver.findElement(By.xpath("//button[@class=\"_13q9y _8hkto _11eg6 _7qjq4 _ey68j\"]"));
@@ -147,7 +149,7 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void testMultipleSelectList(){
+    public void testMultipleSelectList() {
         // Test dla strony allegro.pl
 
         WebElement acceptButton = driver.findElement(By.xpath("//button[@class=\"_13q9y _8hkto _11eg6 _7qjq4 _ey68j\"]"));
@@ -171,6 +173,40 @@ public class GoogleSearchTest {
         make.deselectByIndex(3);
 
         assertEquals(0, make.getAllSelectedOptions().size());
+    }
+
+    @Test
+    public void testDropdown() {
+        // Test dla strony allegro.pl
+
+        WebElement acceptButton = driver.findElement(By.xpath("//button[@class=\"_13q9y _8hkto _11eg6 _7qjq4 _ey68j\"]"));
+        acceptButton.click();
+
+        Select make = new Select(driver.findElement(By.xpath("//select[@data-role=\"filters-dropdown-toggle\"]")));
+
+        assertFalse(make.isMultiple());
+
+        assertEquals(16, make.getOptions().size());
+
+        List<String> expectedOptions = Arrays.asList("Wszystkie kategorie","Dom i ogród", "Dziecko", "Elektronika"
+        ,"Firma", "Kolekcje i sztuka", "Kultura i rozrywka", "Moda", "Motoryzacja", "Ogłoszenia i usługi"
+        ,"Sport i turystyka", "Supermarket", "Uroda", "Zdrowie", "Użytkownicy", "Zakończone");
+        List<String> actualOptions = new ArrayList<String>();
+
+        for (WebElement option : make.getOptions()){
+            actualOptions.add(option.getText());
+        }
+
+        assertEquals(expectedOptions.toArray(), actualOptions.toArray());
+
+        make.selectByVisibleText("Uroda");
+        assertEquals("Uroda", make.getFirstSelectedOption().getText());
+
+        make.selectByValue("/kategoria/firma");
+        assertEquals("Firma", make.getFirstSelectedOption().getText());
+
+        make.selectByIndex(0);
+        assertEquals("Wszystkie kategorie", make.getFirstSelectedOption().getText());
     }
 
 //    @After
